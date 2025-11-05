@@ -13,14 +13,14 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (user) navigate("/");        // redirige si ya está logueado
+    if (user) navigate("/");  //  REDIRIGE SI YA ESTA LOGUEADO
   }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
-    // validaciones simples
+// VALIDACIONES SIMPLES
     if (!nickName.trim()) {
       setError("El nick es requerido.");
       return;
@@ -38,14 +38,14 @@ export default function Login() {
         return;
       }
 
-//    contraseña simulada fija
+//  CONTRASEÑA SIMULADA FIJA
       const FIXED_PASSWORD = "123456";
       if (password !== FIXED_PASSWORD) {
         setError("Contraseña incorrecta.");
         return;
       }
 
-// login exitoso: guarda en contexto y localStorage (AuthProvider lo maneja)
+// LOGIN EXITOSO: guarda en contexto y localStorage (AuthProvider lo maneja)
       login(found);
       navigate("/", { replace: true });
     } catch (err: any) {

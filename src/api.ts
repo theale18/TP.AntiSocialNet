@@ -13,3 +13,19 @@ export async function fetchUserByNick(nickName: string): Promise<User | undefine
   const users = await fetchUsers();
   return users.find(u => u.nickName.toLowerCase() === nickName.toLowerCase());
 }
+
+// POST -> /users
+export async function createUser(newUser: Omit<User, "id">): Promise<User> {
+  const res = await fetch(`${API_BASE}/users`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newUser),
+  });
+
+  if (!res.ok) {
+    const msg = await res.text();
+    throw new Error(msg || "No se pudo crear el usuario.");
+  }
+
+  return res.json();
+}
