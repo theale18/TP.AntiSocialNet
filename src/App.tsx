@@ -4,24 +4,25 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./pages/Register";
+import Home from "./pages/Home";
 
-function Home() {
-  const { user, logout } = useAuth();
-  return (
-    <div style={{ padding: 20 }}>
-      <h1>Home - UnaHur</h1>
-      {user ? (
-        <>
-          <p>Bienvenido, <strong>{user.nickName}</strong></p>
-          <button onClick={logout}>Cerrar sesión</button>
-        </>
-      ) : (
-        <p>No estás logueado. <Link to="/login">Entrar</Link></p>
-      )}
-      <p><Link to="/protected">Ir a ruta protegida</Link></p>
-    </div>
-  );
-}
+// function Home() {
+//   const { user, logout } = useAuth();
+//   return (
+//     <div style={{ padding: 20 }}>
+//       <h1>Home - UnaHur</h1>
+//       {user ? (
+//         <>
+//           <p>Bienvenido, <strong>{user.nickName}</strong></p>
+//           <button onClick={logout}>Cerrar sesión</button>
+//         </>
+//       ) : (
+//         <p>No estás logueado. <Link to="/login">Entrar</Link></p>
+//       )}
+//       <p><Link to="/protected">Ir a ruta protegida</Link></p>
+//     </div>
+//   );
+// }
 
 function ProtectedPage() {
   return (
@@ -45,6 +46,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <ProtectedPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
               </ProtectedRoute>
             }
           />

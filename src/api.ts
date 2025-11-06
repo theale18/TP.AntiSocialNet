@@ -1,4 +1,4 @@
-import { User } from "./types";
+import { User, Post } from "./types";
 
 const API_BASE = process.env.PORT || 3001; 
 //  "http://localhost:3001" 
@@ -27,5 +27,12 @@ export async function createUser(newUser: Omit<User, "id">): Promise<User> {
     throw new Error(msg || "No se pudo crear el usuario.");
   }
 
+  return res.json();
+}
+
+// Trae todas las publicaciones (puede incluir tags e imágenes si el backend lo soporta)
+export async function fetchPosts(): Promise<Post[]> {
+  const res = await fetch(`${API_BASE}/posts`);
+  if (!res.ok) throw new Error("Error al cargar publicaciones.");
   return res.json();
 }
