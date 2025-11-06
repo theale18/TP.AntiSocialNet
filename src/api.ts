@@ -1,4 +1,4 @@
-import { User, Post, Comment } from "./types";
+import { User, Post, Comment, Tag } from "./types";
 
 const API_BASE = process.env.PORT || 3001; 
 //  "http://localhost:3001" 
@@ -30,21 +30,22 @@ export async function createUser(newUser: Omit<User, "id">): Promise<User> {
   return res.json();
 }
 
-// Trae todas las publicaciones (puede incluir tags e imágenes si el backend lo soporta)
+// TRAER TODAS LAS PUBLICACIONES 
+// (puede incluir tags e imágenes si el backend lo soporta)
 export async function fetchPosts(): Promise<Post[]> {
   const res = await fetch(`${API_BASE}/posts`);
   if (!res.ok) throw new Error("Error al cargar publicaciones.");
   return res.json();
 }
 
-// --- obtener un post por ID ---
+//  OBTENER UN POST POR ID
 export async function fetchPostById(id: number): Promise<Post> {
   const res = await fetch(`${API_BASE}/posts/${id}`);
   if (!res.ok) throw new Error("Error al cargar la publicación.");
   return res.json();
 }
 
-// --- crear nuevo comentario ---
+//  CREAR NUEVO COMENTARIO
 export async function createComment(newComment: Omit<Comment, "id">): Promise<Comment> {
   const res = await fetch(`${API_BASE}/comments`, {
     method: "POST",
@@ -64,4 +65,29 @@ export async function fetchPostsByUser(userId: number): Promise<Post[]> {
   const res = await fetch(`${API_BASE}/users/${userId}/posts`);
   if (!res.ok) throw new Error("Error al cargar las publicaciones del usuario.");
   return res.json();
+}
+
+export async function fetchTags(): Promise<Tag[]> {
+  const res = await fetch(`${API_BASE}/tags`);
+  if (!res.ok) throw new Error("Error al cargar etiquetas");
+  return res.json();
+}
+
+export async function createPost(description: string, userId: number, tagIds: number[]): Promise<Post> {
+  const res = await fetch(`${API_BASE}/posts`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ description, userId, tags: tagIds }),
+  });
+  if (!res.ok) throw new Error("No se pudo crear el post");
+  return res.json();
+}
+
+export async function createPostImage(url: string, postId: number): Promise<void> {
+  const res = await fetch(`${API_BASE}/postimages`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url, postId }),
+  });
+  if (!res.ok) throw new Error("No se pudo agregar una imagen");
 }

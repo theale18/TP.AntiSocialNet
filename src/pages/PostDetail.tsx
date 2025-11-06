@@ -16,7 +16,7 @@ export default function PostDetail() {
   const [sending, setSending] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
 
-  // cargar post completo
+//  CARGAR POST COMPLETO
   useEffect(() => {
     const load = async () => {
       try {
@@ -48,7 +48,8 @@ export default function PostDetail() {
         content: newComment.trim(),
         postId: post.id,
       });
-      // actualizar lista localmente sin recargar
+
+//  ACTUALIZAR LISTA LOCALMENTE SIN RECARGAR
       setPost({ ...post, comments: [...(post.comments ?? []), comment] });
       setNewComment("");
       setFeedback("Comentario agregado con éxito.");
@@ -109,7 +110,7 @@ export default function PostDetail() {
 
       <hr />
 
-      {/* formulario para comentar */}
+      {/* formulario */}
       {user ? (
         <form onSubmit={handleSubmit} style={{ marginTop: 16 }}>
           <label htmlFor="comment">Agregar comentario</label>
@@ -141,7 +142,7 @@ export default function PostDetail() {
         </form>
       ) : (
         <p style={{ color: "#555", marginTop: 16 }}>
-          Debes iniciar sesión para comentar.
+          Debes iniciar sesión para comentar
         </p>
       )}
     </div>

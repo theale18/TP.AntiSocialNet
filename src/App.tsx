@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import PostDetail from "./pages/PostDetail";
 import Profile from "./pages/Profile";
-
+import NewPost from "./pages/NewPost";
 // function Home() {
 //   const { user, logout } = useAuth();
 //   return (
@@ -72,6 +72,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/new-post"
+            element={
+              <ProtectedRoute>
+                <NewPost />
               </ProtectedRoute>
             }
           />
