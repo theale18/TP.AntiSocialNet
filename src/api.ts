@@ -59,3 +59,9 @@ export async function createComment(newComment: Omit<Comment, "id">): Promise<Co
 
   return res.json();
 }
+
+export async function fetchPostsByUser(userId: number): Promise<Post[]> {
+  const res = await fetch(`${API_BASE}/users/${userId}/posts`);
+  if (!res.ok) throw new Error("Error al cargar las publicaciones del usuario.");
+  return res.json();
+}

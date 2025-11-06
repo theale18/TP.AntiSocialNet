@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User, Post } = require('../models');
 
 router.get('/', async (req, res) => {
   const users = await User.findAll();
@@ -22,5 +22,24 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'No se pudo crear el usuario', details: e.message });
   }
 });
+
+
+// GET /users/:id/posts → obtiene los posts de un usuario
+router.get("/:id/posts", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByPk(id, {
+      include: [{ model: Post, as: "Posts" }],
+    });
+
+    if (!user) return res.status(404).json({ error: "Usuario no encontrado" });
+
+    res.json(user.Posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener los posts del usuario" });
+  }
+});
+
 
 module.exports = router;

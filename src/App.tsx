@@ -6,6 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import PostDetail from "./pages/PostDetail";
+import Profile from "./pages/Profile";
 
 // function Home() {
 //   const { user, logout } = useAuth();
@@ -63,6 +64,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <PostDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />
