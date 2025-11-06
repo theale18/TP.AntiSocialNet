@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Post, User, Tag } = require('../models');
+const { Post, User, Tag, Comment } = require('../models');
+const comment = require('../models/comment');
 
 router.get('/', async (req, res) => {
   const where = req.query.userId ? { UserId: req.query.userId } : {};
@@ -9,7 +10,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const post = await Post.findByPk(req.params.id, { include: [User, Tag] });
+  const post = await Post.findByPk(req.params.id, { include: [User, Tag, Comment] });
   post ? res.json(post) : res.status(404).json({ error: 'Post no encontrado' });
 });
 
