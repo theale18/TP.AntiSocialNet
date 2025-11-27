@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext';
 import type { Post } from '../types';
 import { getPostsByUserId, getCommentsByPostId, getImagesByPostId } from '../api/api';
 
-// import Loading from '../components/Loading';
 import '../styles/profile.css';
 
 
@@ -53,9 +52,7 @@ const Perfil = () => {
     fetchUserPosts();
   }, [user]);
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+
   
 /*_____________________________HTML_________________________________________________________________________*/
   return (

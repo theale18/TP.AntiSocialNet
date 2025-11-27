@@ -5,8 +5,6 @@ import type { Post, Comment } from '../types';
 import { getPostById, getCommentsByPostId, createComment, getImagesByPostId } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 
-// import Loading from '../components/Loading';
-
 import '../styles/postDetail.css';
 
 const PostDetalle = () => {
@@ -19,7 +17,7 @@ const PostDetalle = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   
-  // Estado para el formulario de comentarios
+
   const [commentContent, setCommentContent] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [commentError, setCommentError] = useState('');
@@ -88,11 +86,9 @@ const PostDetalle = () => {
     }
   };
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
 
-//_____________________________SHTML_________________________________________________________________________
+
+//_____________________________HTML_________________________________________________________________________
   if (error || !post) {
     return (
       <div className="error-container">
@@ -203,7 +199,7 @@ const PostDetalle = () => {
               <div key={comment.id} className="comment-item">
                 <div className="comment-header">
                   <span className="comment-author">
-                    👤 {comment.User?.nickName || 'Anónimo'}
+                    {comment.User?.nickName || 'Anónimo'}
                   </span>
                   <span className="comment-date">
                     {new Date(comment.createdAt).toLocaleDateString('es-AR')}

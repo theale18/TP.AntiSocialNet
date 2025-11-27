@@ -5,8 +5,6 @@ import { useAuth } from '../context/AuthContext';
 import type { Tag } from '../types';
 import { getTags, createPost, createPostImage } from '../api/api';
 
-// import Loading from '../components/Loading';
-
 import '../styles/createPost.css';
 
 const CrearPost = () => {
@@ -103,7 +101,7 @@ const CrearPost = () => {
 
       setSuccess(true);
 
-      // Redirigir al perfil después de 2 segundos
+
       setTimeout(() => {
         navigate('/perfil');
       }, 2000);
@@ -116,9 +114,7 @@ const CrearPost = () => {
     }
   };
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+
 
   if (success) {
     return (

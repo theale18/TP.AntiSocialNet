@@ -3,7 +3,6 @@ import type { Post, Tag } from '../types';
 import { fetchPosts, getCommentsByPostId, getImagesByPostId, getTags } from '../api/api';
 import PostCard from '../components/PostCard';
 
-// import Loading from '../components/Loading';
 
 import '../styles/Home.css';
 
@@ -15,7 +14,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Cargar posts y tags al iniciar
+
 //_____________________________CARGAR POSTS_________________________________________________________________________
 
   useEffect(() => {
@@ -78,9 +77,7 @@ const Home = () => {
     }
   }, [selectedTag, allPosts]);
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+
 
 //_____________________________HTML_________________________________________________________________________
   return (

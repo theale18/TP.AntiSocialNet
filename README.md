@@ -22,6 +22,10 @@ Descarga: https://code.visualstudio.com/download
 
 Respuesta: http://localhost:3001
 
+Cerrar Puerto:
+netstat -ano | findstr :3001
+taskkill //PID "n° del PID"//F
+
 ## EJECUTAR FRONTEND
 
 * Abrir Terminal (GitBash) dentro de la Carpeta: frontend
@@ -31,6 +35,9 @@ Respuesta: http://localhost:3001
 
 Respuesta --> Local: http://localhost:5173
 
+Cerrar Puerto:
+netstat -ano | grep "5173"
+taskkill //PID "n° del PID" //F
 
 
 
