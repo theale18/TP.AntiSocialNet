@@ -10,7 +10,7 @@ Descarga: https://code.visualstudio.com/download
 
 * Clonar Repo
 - Ejecutar Git Bash
-- Pegar: git clone 
+- Pegar: git clone https://github.com/theale18/TP.AntiSocialNet.git
 
 ## EJECUTAR BACKEND
 
