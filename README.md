@@ -10,7 +10,7 @@ Descarga: https://code.visualstudio.com/download
 
 * Clonar Repo
 - Ejecutar Git Bash
-- Pegar: git clone 
+- Pegar: git clone https://github.com/theale18/TP.AntiSocialNet.git
 
 ## EJECUTAR BACKEND
 
@@ -20,7 +20,7 @@ Descarga: https://code.visualstudio.com/download
 - node seed.js
 - npm start
 
-Respuesta: http://localhost:3001
+Respuesta -> Servidor corriendo en http://localhost:3001
 
 Cerrar Puerto:
 netstat -ano | findstr :3001
