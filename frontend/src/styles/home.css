@@ -1,0 +1,180 @@
+/* .home-container {
+  padding: 1rem;
+  max-width: 920px;
+  margin: auto;
+  background-color: rgb(126 171 225);
+}
+
+/* Banner 
+.banner {
+  background: linear-gradient(90deg, #0369a1, #0ea5e9);
+  color: white;
+  padding: 1.6rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.banner p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* Sobre nosotros 
+.about {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.feed-title {
+  margin-bottom: 0.9rem;
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* responsive 
+@media (max-width: 640px) {
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+} */
+
+.home-container {
+  min-height: calc(100vh - 70px);
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header estilo Twitter */
+/* .home-header {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 70px;
+  background-color: black;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+} */
+
+.home-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Filtro de etiquetas */
+.tags-filter {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+  background-color: var(--bg-primary);
+  /* position: sticky; */
+  top: calc(70px + 64px);
+  z-index: 99;
+}
+
+.tags-filter::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filter-tag {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.filter-tag:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--azulOscuro);
+}
+
+.filter-tag.active {
+  background-color: var(--azulOscuro);
+  color: white;
+  border-color: var(--azulOscuro);
+}
+
+/* Feed Container */
+.feed-container {
+  min-height: 400px;
+}
+
+.error-message {
+  background-color: #fee;
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+}
+
+/* Feed estilo Twitter (vertical) */
+.posts-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-container {
+    border-left: none;
+    border-right: none;
+  }
+
+  .home-header {
+    top: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .home-title {
+    font-size: 1.25rem;
+  }
+
+  .tags-filter {
+    top: calc(64px);
+    padding: var(--spacing-sm);
+    gap: 0.5rem;
+  }
+
+  .filter-tag {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    padding: var(--spacing-sm);
+  }
+}
+
